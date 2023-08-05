@@ -6,13 +6,15 @@ import { useState } from "react";
 import { Bars3Icon } from "@heroicons/react/24/solid";
 import { styles } from "../../utils/styles";
 import DesktopMenu from "./desktop-menu";
+import classNames from "classnames";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  console.log(styles.container);
+  const mobile = classNames(styles.container, styles.xPaddings, "mx-auto");
   return (
-    <header className="w-full fixed top-0 left-0 border-b-[1px]">
-      <nav className={`${styles.container} ${styles.xPaddings} mx-auto`}>
-        {/* px-8 sm:px-4 2xl:px-0 */}
+    <header className="w-full fixed top-0 left-0 border-b-[1px] bg-white">
+      <nav className={mobile}>
         {/* Mobile Header */}
         <div className="w-full h-16 flex items-center justify-between lg:hidden">
           {/* Menu Button */}
@@ -72,7 +74,7 @@ const Navbar = () => {
         <div className="hidden w-full h-16 lg:flex items-center justify-between">
           {/* Logo */}
           <Link href={"/"}>
-            <span className="text-2xl font-bold">Shoppy</span>
+            <span className="text-xl font-bold">Shoppy</span>
           </Link>
           {/* Header Content */}
           <DesktopMenu />
